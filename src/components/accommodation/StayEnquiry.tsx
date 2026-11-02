@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { CalendarDays, MessageCircle, Users } from 'lucide-react';
+import { whatsappMessageUrl } from '@/config/contact';
 
 export default function StayEnquiry({ title, slug, maxGuests }: { title: string; slug: string; maxGuests: number }) {
   const [arrival, setArrival] = useState('');
@@ -13,7 +14,7 @@ export default function StayEnquiry({ title, slug, maxGuests }: { title: string;
     <div className="mt-6 grid gap-4 sm:grid-cols-2"><label className="grid gap-2 text-xs font-bold uppercase tracking-[.1em]"><span className="flex items-center gap-2"><CalendarDays size={15} />Arrival</span><input type="date" value={arrival} onChange={(e) => setArrival(e.target.value)} className="min-h-12 border border-black/20 bg-white px-3" /></label><label className="grid gap-2 text-xs font-bold uppercase tracking-[.1em]"><span className="flex items-center gap-2"><CalendarDays size={15} />Departure</span><input type="date" value={departure} min={arrival || undefined} onChange={(e) => setDeparture(e.target.value)} className="min-h-12 border border-black/20 bg-white px-3" /></label></div>
     {invalidDates && <p role="alert" className="mt-3 text-sm text-red-800">Departure must be after arrival.</p>}
     <label className="mt-4 grid gap-2 text-xs font-bold uppercase tracking-[.1em]"><span className="flex items-center gap-2"><Users size={15} />Guests</span><select value={guests} onChange={(e) => setGuests(Number(e.target.value))} className="min-h-12 border border-black/20 bg-white px-3">{Array.from({ length: maxGuests }, (_, i) => i + 1).map((value) => <option key={value} value={value}>{value} {value === 1 ? 'guest' : 'guests'}</option>)}</select></label>
-    <a href={`https://wa.me/27641727623?text=${encodeURIComponent(message)}`} target="_blank" rel="noreferrer" aria-disabled={invalidDates} className={`btn-primary mt-6 w-full ${invalidDates ? 'pointer-events-none opacity-50' : ''}`}><MessageCircle size={16} />Request by WhatsApp</a>
+    <a href={whatsappMessageUrl(message)} target="_blank" rel="noopener noreferrer" aria-disabled={invalidDates} className={`btn-primary mt-6 w-full ${invalidDates ? 'pointer-events-none opacity-50' : ''}`}><MessageCircle size={16} />Request by WhatsApp</a>
     <a href={`/contact?stay=${slug}`} className="mt-4 block text-center text-xs font-bold uppercase tracking-[.12em] underline underline-offset-4">Other contact options</a>
   </div>;
 }

@@ -4,7 +4,7 @@
 
 Public routes: home, services and all six service details, projects and all four project studies, products, boards, hardware, accommodation, rentals and three rental details, short stays and three stay details, about, contact, privacy, terms, sitemap, robots and the custom 404.
 
-Shared flows audited: desktop and mobile navigation, service/project/product/accommodation links, catalogue search and filters, cutting-request validation, galleries and dialogs, email, telephone, WhatsApp, address, enquiry disclaimers, metadata and structured data.
+Shared flows audited: desktop and mobile navigation, service/project/product/accommodation links, catalogue search and filters, cutting-request validation, galleries and dialogs, verified email handoffs, enquiry disclaimers, metadata and structured data.
 
 ## Automated checks
 
@@ -25,7 +25,7 @@ Shared flows audited: desktop and mobile navigation, service/project/product/acc
 
 ## Content and legal review
 
-All current projects, catalogue products and accommodation records remain explicitly illustrative. There is no checkout, payment, inventory reservation, availability claim, form submission or booking confirmation. Direct contact links hand the user to their own email, phone or WhatsApp client.
+All current projects, catalogue products and accommodation records remain explicitly illustrative. There is no checkout, payment, inventory reservation, availability claim, form submission or booking confirmation. Direct contact links hand the user to their own email client.
 
 Business review is required before launch for the legal entity name, physical address, service area, POPIA/privacy retention and deletion process, consumer terms, accommodation rules, supplier specifications, photography provenance and production domain. `ASSETS.md` records the inherited template licensing position, but the business should retain source URLs/releases or replace every image with owned, property-specific media.
 
@@ -34,4 +34,4 @@ Business review is required before launch for the legal entity name, physical ad
 - No live inventory, pricing, availability, checkout, booking or enquiry backend.
 - Catalogue, project and accommodation imagery/content are suitable only as labelled illustrative material, not real inventory or completed-work claims.
 - Browser visual regression, Lighthouse and assistive-technology testing require a deployed preview and should be repeated on real iOS Safari, Android Chrome and desktop browsers before DNS cutover.
-- The supplied social image is inherited template artwork and should be replaced with approved Exquisite Properties branding.
+- Social metadata currently uses the site hero photograph. Replace it with an approved Exquisite Properties social-sharing asset when one is supplied.

@@ -5,7 +5,7 @@
 - Retained Next.js 16, React 19, strict TypeScript, Tailwind CSS v4, `next/image`, local assets and the reduced-motion-aware `ScrollReveal` component.
 - Established six company service areas and a charcoal, warm-ivory and champagne/bronze design system.
 - Added a typed domain layer and `ContentRepository` contract. The static implementation can later be replaced by a REST adapter without changing page components.
-- Contact actions use real email, telephone and WhatsApp links. There is no simulated form submission.
+- Contact actions use the verified business email. There is no simulated form submission.
 
 ## Phase 2 delivered
 
@@ -44,7 +44,7 @@
 
 - Added typed `CatalogueProduct`, `SupplyBoard`, cutting-panel and request models plus a dedicated `ProductRepository` contract backed by static data. A Spring Boot adapter can replace it without changing page components.
 - Rebuilt `/products/boards` with material filters, detail views, multi-board selection and an interactive multi-panel cutting planner. Validation covers positive dimensions, positive whole quantities, centimetre conversion and indicative sheet fit in either orientation.
-- Added optional edge-banding by panel side, panel notes, editable generated summaries and transparent email/WhatsApp handoff. Long message URLs are withheld and the full specification remains copyable.
+- Added optional edge-banding by panel side, panel notes, editable generated summaries and transparent email handoff. Long email URLs are withheld and the full specification remains copyable.
 - Rebuilt `/products/hardware` as a searchable, category-filtered catalogue spanning construction materials, boards, screws, nails, fittings, tools and accessories. Client-side quantities form an enquiry list only.
 - All current Phase 3 catalogue entries are visibly illustrative, and pricing is explicitly unverified or on request. No stock, pricing, feasibility, order, checkout, payment or persistence claim is made.
 - Product cards, dialogs and planners use native buttons, labelled controls, live result counts, visible focus styles, responsive grids and mobile-safe horizontal filter rows.
@@ -66,7 +66,7 @@
 - Introduced a typed `Accommodation` model and repository methods for rental and short-stay records. Every current record is explicitly illustrative and uses licensed template imagery pending verified inventory.
 - Rental filtering covers location, property type, minimum bedrooms and bathrooms, verified-price status and known-availability status. Unknown rent, deposit, lease terms and availability are not invented.
 - Detail pages reuse the accessible gallery/lightbox and established editorial design, with accommodation specifications, amenities, conditional terms and direct enquiry paths.
-- Short-stay detail pages include occupancy, house rules and a client-side date/guest selector that prepares a WhatsApp enquiry. It does not claim availability, reserve dates, confirm a booking or process payment.
+- Short-stay detail pages include occupancy, house rules and a client-side date/guest selector that prepares an email enquiry. It does not claim availability, reserve dates, confirm a booking or process payment.
 - Desktop and mobile navigation now link directly to both accommodation experiences.
 
 ## Phase 4 remaining gaps

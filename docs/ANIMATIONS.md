@@ -1,6 +1,6 @@
-# Horizon Estate — Animation & Motion System Specification
+# Exquisite Properties — Animation & Motion System Specification
 
-This document details the motion design tokens, scroll-reveal mechanics, micro-interactions, hardware-acceleration techniques, and accessibility safeguards implemented across **Horizon Estate**.
+This document details the motion design tokens, scroll-reveal mechanics, micro-interactions, hardware-acceleration techniques, and accessibility safeguards implemented across **Exquisite Properties**.
 
 ---
 
@@ -88,7 +88,7 @@ Supported directions:
 
 ## 4. Accessibility: Reduced-Motion Support
 
-Horizon Estate respects the user's operating system preferences via two layers of protection:
+Exquisite Properties respects the user's operating system preferences via two layers of protection:
 
 ### Layer 1: CSS Global Override
 In `src/app/globals.css`:
@@ -121,4 +121,4 @@ if (prefersReducedMotion) {
 
 - **Global Speed Adjustment**: Modify `--duration-reveal` or `--duration-image` in `src/app/globals.css`.
 - **Per-Component Disabling**: Set `duration={0}` on `<ScrollReveal>` instances or remove the wrapper component.
-- **Test in Real-Time**: Visit the interactive **Animation Lab** on [`/showcase#animation-showcase`](http://localhost:3000/showcase#animation-showcase) to test and replay animations without reloading the page.
+- **Test in Real-Time**: Run the application locally and inspect transitions on the landing, service, project, product, and accommodation routes.

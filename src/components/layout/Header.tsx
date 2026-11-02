@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { contact } from '@/config/contact';
 
 const services = [
   ['Property transformation', '/services/property-transformation'],
@@ -50,7 +51,7 @@ export default function Header() {
         <Link href="/services" onClick={() => setOpen(false)} className="block border-b border-white/10 py-4 font-serif text-3xl">Services</Link>
         <div className="grid grid-cols-1 border-b border-white/10 py-3 sm:grid-cols-2">{services.map(([label, href]) => <Link key={href} href={href} onClick={() => setOpen(false)} className="py-2 text-sm text-white/60">{label}</Link>)}</div>
         {nav.map(([label, href]) => <div key={href}><Link href={href} onClick={() => setOpen(false)} className="block border-b border-white/10 py-4 font-serif text-3xl">{label}</Link>{label === 'Accommodation' && <div className="grid grid-cols-2 border-b border-white/10 py-3"><Link href="/rentals" onClick={() => setOpen(false)} className="py-2 text-sm text-white/60">Rentals</Link><Link href="/short-stays" onClick={() => setOpen(false)} className="py-2 text-sm text-white/60">Short stays</Link></div>}</div>)}
-        <a href="tel:+27641727623" className="mt-8 inline-block text-[#dbc18f]">+27 64 172 7623</a>
+        <a href={contact.phoneHref} className="mt-8 inline-block text-[#dbc18f]">{contact.phoneDisplay}</a>
       </div>
     </nav>}
   </header>;
