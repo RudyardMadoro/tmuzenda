@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "preview": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build"
   },
   "dependencies": {
     "lucide-react": "^1.57.0",

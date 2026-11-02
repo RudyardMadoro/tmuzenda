@@ -1,163 +1,86 @@
-export type TransactionType = 'buy' | 'rent' | 'development' | 'commercial' | 'investment';
-
-export type PropertyCategory = 
-  | 'Villa'
-  | 'House'
-  | 'Apartment'
-  | 'Penthouse'
-  | 'Eco-Villa'
-  | 'Mountain Lodge'
-  | 'Beach House'
-  | 'Commercial'
-  | 'Development';
-
-export interface Property {
+export type Media = { src: string; alt: string };
+export interface Service { id: string; slug: string; title: string; shortTitle: string; summary: string; description: string; image: Media; capabilities: string[]; }
+export type ProjectCategory = 'Transformation' | 'Cabinetry' | 'Interiors' | 'Maintenance';
+export interface Project {
   id: string;
   slug: string;
   title: string;
-  subtitle?: string;
+  category: ProjectCategory;
+  service: string;
   location: string;
-  city: string;
-  country: string;
-  price: number;
-  formattedPrice: string;
-  pricePrefix?: string;
-  priceSuffix?: string;
-  transactionType: TransactionType;
-  propertyType: PropertyCategory;
-  area: number; // in m²
+  status: 'Illustrative concept';
+  summary: string;
+  description: string;
+  scope: string[];
+  image: Media;
+  gallery: Media[];
+  beforeAfter?: { before: Media; after: Media; note: string };
+  featured?: boolean;
+}
+export interface ServiceOffering { id: string; title: string; description: string; benefits: string[]; image: Media; }
+export interface MaterialInspiration { name: string; character: string; applications: string[]; image: Media; }
+export interface Product { id: string; slug: string; title: string; category: 'Board' | 'Hardware'; summary: string; uses: string[]; image: Media; }
+export interface Board extends Product { category: 'Board'; finishes: string[]; cutToSize: boolean; }
+
+export type CatalogueCategory = 'Construction materials' | 'Boards' | 'Screws' | 'Nails' | 'Fittings' | 'Tools' | 'Accessories';
+export type PriceStatus = 'verified' | 'unverified' | 'on-request';
+export interface CataloguePrice { amount?: number; currency: 'ZAR'; unit?: string; status: PriceStatus; }
+export interface CatalogueProduct {
+  id: string;
+  slug: string;
+  name: string;
+  category: CatalogueCategory;
+  summary: string;
+  description: string;
+  image: Media;
+  specifications: Record<string, string>;
+  price: CataloguePrice;
+  illustrative: boolean;
+}
+export type BoardMaterial = 'Melamine' | 'MDF' | 'Plywood' | 'Particleboard';
+export interface SupplyBoard extends CatalogueProduct {
+  category: 'Boards';
+  material: BoardMaterial;
+  finish: string;
+  colour: string;
+  thicknessMm: number;
+  sheet: { lengthMm: number; widthMm: number };
+}
+export type DimensionUnit = 'mm' | 'cm';
+export type EdgeBandSide = 'top' | 'right' | 'bottom' | 'left';
+export interface CuttingPanel {
+  id: string;
+  length: string;
+  width: string;
+  quantity: string;
+  unit: DimensionUnit;
+  edgeBanding: EdgeBandSide[];
+  notes: string;
+}
+export interface BoardCuttingRequest { id: string; boardId: string; panels: CuttingPanel[]; }
+export type AccommodationKind = 'rental' | 'short-stay';
+export type AccommodationPrice = { amount?: number; currency: 'ZAR'; period: 'month' | 'night'; verified: boolean };
+export interface Accommodation {
+  id: string;
+  slug: string;
+  kind: AccommodationKind;
+  title: string;
+  location: string;
+  propertyType: 'Apartment' | 'Townhouse' | 'House' | 'Guest suite';
+  summary: string;
+  description: string;
   bedrooms: number;
   bathrooms: number;
-  floors?: number;
-  yearBuilt?: number;
-  description: string;
-  shortDescription: string;
-  features: string[];
+  maxGuests?: number;
+  price: AccommodationPrice;
   amenities: string[];
-  mainImage: string;
-  images: string[];
-  floorPlanImage?: string;
-  agentId: string;
-  listingStatus: 'active' | 'under-offer' | 'new-development' | 'featured';
-  isFeatured?: boolean;
-  isNew?: boolean;
-  investmentMetrics?: {
-    minInvestment: number;
-    projectedReturn: string;
-    irr: string;
-    targetNetReturn: string;
-    holdingPeriod: string;
-    distributionFrequency: string;
-  };
-  rentalTerms?: {
-    minLeaseMonths?: number;
-    securityDeposit?: string;
-    furnished?: boolean;
-    availableFrom?: string;
-  };
-  commercialSpecs?: {
-    buildingClass?: 'Class A+' | 'Class A' | 'Prime';
-    parkingSpaces?: number;
-    zoning?: string;
-    occupancyRate?: string;
-  };
-  developmentSpecs?: {
-    unitsTotal?: number;
-    unitsAvailable?: number;
-    completionDate?: string;
-    developerName?: string;
-  };
-  createdAt: string;
+  specifications: Record<string, string>;
+  images: Media[];
+  illustrative: boolean;
+  availability?: string;
+  deposit?: string;
+  leaseTerm?: string;
+  houseRules?: string[];
 }
-
-export interface Agent {
-  id: string;
-  slug: string;
-  name: string;
-  role: string;
-  title: string;
-  image: string;
-  rating: number;
-  reviewCount: number;
-  phone: string;
-  email: string;
-  bio: string;
-  experienceYears: number;
-  specialization: string[];
-  languages: string[];
-  serviceAreas: string[];
-  verifiedTransactions: number;
-}
-
-export interface ServiceItem {
-  id: string;
-  slug: string;
-  number: string;
-  title: string;
-  description: string;
-  extendedDescription: string;
-  image: string;
-  steps: string[];
-  benefits: string[];
-  ctaText: string;
-}
-
-export interface InvestmentOpportunity {
-  id: string;
-  slug: string;
-  title: string;
-  location: string;
-  country: string;
-  area: number;
-  floors: number;
-  bedrooms: number;
-  bathrooms: number;
-  description: string;
-  image: string;
-  minInvestment: number;
-  targetIrr: string;
-  projectedReturn: string;
-  holdingPeriod: string;
-  structure: string;
-  riskRating: 'Low-Medium' | 'Medium' | 'Medium-Growth';
-  status: 'Open for Allocation' | 'Closing Soon' | 'Fully Funded';
-}
-
-export interface Article {
-  id: string;
-  slug: string;
-  title: string;
-  category: string;
-  date: string;
-  excerpt: string;
-  readingTime: string;
-  image: string;
-  author: {
-    name: string;
-    role: string;
-    avatar: string;
-  };
-  content: string[];
-}
-
-export interface Testimonial {
-  id: string;
-  quote: string;
-  clientName: string;
-  clientRole: string;
-  location: string;
-  rating: number;
-  propertyAcquired: string;
-  year: string;
-}
-
-export interface InquiryFormData {
-  name: string;
-  email: string;
-  phone?: string;
-  message: string;
-  propertyTitle?: string;
-  inquiryType: 'viewing' | 'consultation' | 'brochure' | 'listing' | 'general';
-  preferredContact?: 'email' | 'phone' | 'whatsapp';
-  acceptedTerms: boolean;
-}
+/** @deprecated Use Accommodation. Kept while older integrations migrate. */
+export interface Property { id: string; slug: string; title: string; location: string; stayType: 'Rental' | 'Short stay'; summary: string; amenities: string[]; image: Media; }

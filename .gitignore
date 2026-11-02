@@ -19,10 +19,18 @@
 
 # production
 /build
+/dist/
 
 # misc
 .DS_Store
 *.pem
+*.tmp
+*.temp
+*.log
+.cache/
+.eslintcache
+.idea/
+.vscode/
 
 # debug
 npm-debug.log*

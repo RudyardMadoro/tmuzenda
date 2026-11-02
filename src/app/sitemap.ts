@@ -1,54 +1,8 @@
-import { MetadataRoute } from 'next';
-import { properties } from '@/data/properties';
-import { agents } from '@/data/agents';
-import { articles } from '@/data/journal';
-
+import type { MetadataRoute } from 'next';
+import { projects, services } from '@/data/content';
+import { accommodation } from '@/data/accommodation';
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://horizonestate.com';
-
-  const staticRoutes = [
-    '',
-    '/properties',
-    '/rentals',
-    '/developments',
-    '/commercial',
-    '/investment',
-    '/services',
-    '/agents',
-    '/about',
-    '/journal',
-    '/contact',
-    '/list-property',
-    '/careers',
-    '/privacy',
-    '/terms',
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1.0 : 0.8,
-  }));
-
-  const propertyRoutes = properties.map((prop) => ({
-    url: `${baseUrl}/properties/${prop.slug}`,
-    lastModified: new Date(prop.createdAt).toISOString(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.9,
-  }));
-
-  const agentRoutes = agents.map((agent) => ({
-    url: `${baseUrl}/agents/${agent.slug}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  const articleRoutes = articles.map((article) => ({
-    url: `${baseUrl}/journal/${article.slug}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  return [...staticRoutes, ...propertyRoutes, ...agentRoutes, ...articleRoutes];
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://exquisiteproperties.co.za';
+  const routes = ['', '/services', '/projects', '/products', '/products/boards', '/products/hardware', '/accommodation', '/rentals', '/short-stays', '/about', '/contact', '/privacy', '/terms', ...services.map(item => `/services/${item.slug}`), ...projects.map(item => `/projects/${item.slug}`), ...accommodation.map(item => `${item.kind === 'rental' ? '/rentals' : '/short-stays'}/${item.slug}`)];
+  return routes.map(route => ({ url: `${base}${route}`, lastModified: '2026-11-02', changeFrequency: route === '' ? 'weekly' : 'monthly', priority: route === '' ? 1 : .8 }));
 }

@@ -1,88 +1,24 @@
 import type { Metadata } from 'next';
-import { Manrope } from 'next/font/google';
-import './globals.css';
+import { Cormorant_Garamond, Manrope } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import './globals.css';
 
-const manrope = Manrope({
-  subsets: ['latin'],
-  variable: '--font-manrope',
-  weight: ['300', '400', '500', '600', '700', '800'],
-  display: 'swap',
-});
+const sans = Manrope({ subsets: ['latin'], variable: '--font-sans' });
+const serif = Cormorant_Garamond({ subsets: ['latin'], variable: '--font-serif', weight: ['500', '600', '700'] });
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://exquisiteproperties.co.za';
 
 export const metadata: Metadata = {
-  title: 'Horizon Estate | International Luxury Real Estate & Investment',
-  description:
-    'Discover exceptional homes, curated luxury properties, and transparent property investment opportunities across Europe, North America, and international destinations.',
-  metadataBase: new URL('https://horizonestate.com'),
-  openGraph: {
-    title: 'Horizon Estate | International Luxury Real Estate & Investment',
-    description:
-      'Discover exceptional homes, curated luxury properties, and transparent property investment opportunities.',
-    images: ['/images/hero/hero-luxury-villa.jpg'],
-    type: 'website',
-    siteName: 'Horizon Estate',
-    locale: 'en_US',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Horizon Estate | International Luxury Real Estate & Investment',
-    description: 'Curated architectural listings and investment opportunities.',
-    images: ['/images/hero/hero-luxury-villa.jpg'],
-  },
+  metadataBase: new URL(siteUrl),
+  title: { default: 'Exquisite Properties | Transforming Spaces, Beautifully', template: '%s | Exquisite Properties' },
+  description: 'Property transformation, custom cabinetry, board supply, hardware, accommodation and project delivery in Midrand and Gauteng.',
+  alternates: { canonical: '/' },
+  openGraph: { title: 'Exquisite Properties', description: 'Transforming spaces, beautifully.', type: 'website', locale: 'en_ZA', siteName: 'Exquisite Properties', url: '/', images: [{ url: '/showcase/og-image.png', width: 1200, height: 630, alt: 'Exquisite Properties' }] },
+  twitter: { card: 'summary_large_image', title: 'Exquisite Properties', description: 'Transforming spaces, beautifully.', images: ['/showcase/og-image.png'] },
+  robots: { index: true, follow: true },
 };
 
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'RealEstateAgent',
-  name: 'Horizon Estate',
-  description: 'International luxury real estate brokerage and property investment platform.',
-  url: 'https://horizonestate.com',
-  logo: 'https://horizonestate.com/images/hero/hero-luxury-villa.jpg',
-  telephone: '+1-213-555-0192',
-  email: 'advisory@horizonestate.com',
-  address: [
-    {
-      '@type': 'PostalAddress',
-      addressLocality: 'Beverly Hills',
-      addressRegion: 'CA',
-      addressCountry: 'US',
-    },
-    {
-      '@type': 'PostalAddress',
-      addressLocality: 'London',
-      addressCountry: 'GB',
-    },
-    {
-      '@type': 'PostalAddress',
-      addressLocality: 'Madrid',
-      addressCountry: 'ES',
-    },
-  ],
-  priceRange: '$$$$',
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en" className={`${manrope.variable} font-sans`}>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-      </head>
-      <body className="min-h-screen bg-white text-[#111111] antialiased selection:bg-[#111111] selection:text-white flex flex-col">
-        <Header />
-        <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const organization = { '@context': 'https://schema.org', '@type': 'LocalBusiness', '@id': `${siteUrl}/#business`, name: 'Exquisite Properties', url: siteUrl, email: 'rudyardmadoro@gmail.com', telephone: '+27641727623', address: { '@type': 'PostalAddress', streetAddress: '18 Jacaranda Street', addressLocality: 'Midrand', addressRegion: 'Gauteng', addressCountry: 'ZA' }, areaServed: { '@type': 'AdministrativeArea', name: 'Gauteng' } };
+  return <html lang="en"><body className={`${sans.variable} ${serif.variable}`}><Header /><main id="main-content" tabIndex={-1}>{children}</main><Footer /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization).replace(/</g, '\\u003c') }} /></body></html>;
 }

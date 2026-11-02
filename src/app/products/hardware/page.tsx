@@ -1,0 +1,6 @@
+import type { Metadata } from 'next';
+import PageHero from '@/components/ui/PageHero';
+import HardwareCatalogue from '@/components/products/HardwareCatalogue';
+import { productRepository } from '@/repositories/product-repository';
+export const metadata: Metadata = { title: 'Materials & Supporting Hardware', description: 'Browse illustrative construction materials, boards, fixings, fittings, tools and accessories.' };
+export default async function HardwarePage() { const items = await productRepository.getHardwareProducts(); return <><PageHero eyebrow="Materials & supporting hardware" title="The practical pieces behind a resolved build." copy="Search materials, boards, fixings, fittings, tools and accessories, then prepare a no-obligation enquiry list for specification and availability review." image="/images/services/legal-support.jpg" /><section className="container-custom py-16 sm:py-24"><div className="mb-10 max-w-3xl border-l-2 border-[#a67c3f] pl-5 text-sm leading-6 text-[#69655c]">Catalogue products and imagery are illustrative unless explicitly verified. Prices shown as unverified or on request are not quotations. Selection is stored only in this page session; there is no checkout, payment or inventory reservation.</div><HardwareCatalogue products={items} /></section></>; }
