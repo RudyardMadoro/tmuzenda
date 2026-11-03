@@ -7,6 +7,23 @@
 - A Next.js-compatible hosting environment
 - A verified public domain before enabling production canonical URLs
 
+## Cloudflare Workers (Git integration)
+
+This repository currently relies on Cloudflare Workers' automatic Next.js configuration rather than a committed OpenNext, vinext, or Wrangler setup. Keep that deployment path unless Cloudflare's automatic configuration reports a compatibility gap; adding a second adapter would create competing build pipelines.
+
+Configure the connected Worker with:
+
+- Root directory: `/`
+- Install command: `npm ci` (or leave Cloudflare's automatic npm install enabled)
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Output directory: none; Workers automatic configuration supplies the Worker and asset entry points
+- Node.js version: 20 or newer
+
+Cloudflare currently detects Next.js 16 projects and configures vinext automatically during deployment. If the dashboard offers an automatic-configuration pull request, review and merge that generated configuration instead of manually adding OpenNext. The Worker name in any generated `wrangler.jsonc` must exactly match the existing Worker name in Cloudflare.
+
+The production build must not download fonts. Manrope and Cormorant Garamond are committed as local WOFF2 files and bundled by `next/font/local`.
+
 ## Release process
 
 ```bash

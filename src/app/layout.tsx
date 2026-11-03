@@ -1,13 +1,25 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Manrope } from 'next/font/google';
+import localFont from 'next/font/local';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingWhatsApp from '@/components/contact/FloatingWhatsApp';
 import { contact } from '@/config/contact';
 import './globals.css';
 
-const sans = Manrope({ subsets: ['latin'], variable: '--font-sans' });
-const serif = Cormorant_Garamond({ subsets: ['latin'], variable: '--font-serif', weight: ['500', '600', '700'] });
+const sans = localFont({
+  src: './fonts/manrope-latin-variable.woff2',
+  variable: '--font-sans',
+  weight: '200 800',
+  display: 'swap',
+  fallback: ['system-ui', 'Arial'],
+});
+const serif = localFont({
+  src: './fonts/cormorant-garamond-latin-variable.woff2',
+  variable: '--font-serif',
+  weight: '500 700',
+  display: 'swap',
+  fallback: ['Georgia', 'Times New Roman'],
+});
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
 export const metadata: Metadata = {
