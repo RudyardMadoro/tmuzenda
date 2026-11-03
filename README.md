@@ -47,14 +47,14 @@ npm run typecheck  # TypeScript validation
 npm test           # Node test suite
 npm run build      # Production build
 npm run check      # Full validation pipeline
-npm start          # Serve a production build
+npm run preview    # Preview the static Pages output and Function
 ```
 
 ## Configuration
 
 `NEXT_PUBLIC_SITE_URL` controls canonical URLs, social metadata, the sitemap, robots output, and structured-data identifiers. It defaults to the local development origin. Set it to the verified public domain in the deployment environment; do not include a trailing slash.
 
-The contact form uses the server-side Resend API integration. Configure `RESEND_API_KEY` and a verified `CONTACT_FROM_EMAIL`; `CONTACT_TO_EMAIL` defaults to `rudyardmadoro@gmail.com`. Never expose these values with a `NEXT_PUBLIC_` prefix or commit `.env.local`.
+The contact form uses a Cloudflare Pages Function with the Resend API. Configure `RESEND_API_KEY` and a verified `CONTACT_FROM_EMAIL`; `CONTACT_TO_EMAIL` defaults to `rudyardmadoro@gmail.com`. Never expose these values with a `NEXT_PUBLIC_` prefix or commit local secret files.
 
 ## Content and enquiries
 
@@ -62,13 +62,14 @@ Business content is stored in `src/data/` and exposed through repository adapter
 
 ## Deployment
 
-Run `npm run check`, configure `NEXT_PUBLIC_SITE_URL`, and deploy with a Next.js-compatible platform using:
+Run `npm run check`, configure `NEXT_PUBLIC_SITE_URL`, and deploy to Cloudflare Pages using:
 
 - Install: `npm ci`
 - Build: `npm run build`
-- Start: `npm start`
+- Output: `out`
+- Preset: Next.js (Static HTML Export)
 
-See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) and [docs/PHASE-5-DEPLOYMENT.md](docs/PHASE-5-DEPLOYMENT.md) for the release checklist.
+See [CLOUDFLARE_DEPLOYMENT.md](CLOUDFLARE_DEPLOYMENT.md) and [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the release checklist.
 
 ## Assets and licensing
 

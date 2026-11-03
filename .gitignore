@@ -28,6 +28,7 @@
 *.temp
 *.log
 .cache/
+.wrangler/
 .eslintcache
 .idea/
 .vscode/

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { contact, whatsappUrl } from '../src/config/contact.ts';
+import { handleContactRequest } from '../src/lib/contact-handler.ts';
 import { parseContactEnquiry, validateContactEnquiry } from '../src/lib/contact-enquiry.ts';
 
 const valid = { fullName: 'Rudyard Madoro', email: 'client@example.com', phone: '', service: 'Cabinetry & Custom Interiors', subject: 'Kitchen cabinetry', message: 'Please contact me about a custom kitchen.', website: '' };
@@ -24,20 +25,15 @@ test('contact enquiry validation rejects missing and malformed fields', () => {
 
 test('contact route reports success only after provider acceptance and blocks a duplicate', async () => {
   const previousFetch = globalThis.fetch;
-  const previousKey = process.env.RESEND_API_KEY;
-  const previousFrom = process.env.CONTACT_FROM_EMAIL;
-  process.env.RESEND_API_KEY = 'test-key'; process.env.CONTACT_FROM_EMAIL = 'Website <website@example.com>';
   globalThis.fetch = (async () => new Response(JSON.stringify({ id: 'email_123' }), { status: 200, headers: { 'Content-Type': 'application/json' } })) as typeof fetch;
   try {
-    const { POST } = await import('../src/app/api/contact/route.ts');
     const request = () => new Request('http://localhost/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-forwarded-for': '192.0.2.50' }, body: JSON.stringify(valid) });
-    const accepted = await POST(request());
+    const environment = { RESEND_API_KEY: 'test-key', CONTACT_FROM_EMAIL: 'Website <website@example.com>' };
+    const accepted = await handleContactRequest(request(), environment);
     assert.equal(accepted.status, 200);
-    const duplicate = await POST(request());
+    const duplicate = await handleContactRequest(request(), environment);
     assert.equal(duplicate.status, 409);
   } finally {
     globalThis.fetch = previousFetch;
-    if (previousKey === undefined) delete process.env.RESEND_API_KEY; else process.env.RESEND_API_KEY = previousKey;
-    if (previousFrom === undefined) delete process.env.CONTACT_FROM_EMAIL; else process.env.CONTACT_FROM_EMAIL = previousFrom;
   }
 });
