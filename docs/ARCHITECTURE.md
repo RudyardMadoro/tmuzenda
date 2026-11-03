@@ -1,6 +1,6 @@
 # Architecture
 
-Exquisite Properties is a Next.js 16 App Router application using React 19, TypeScript, Tailwind CSS 4, Server Components by default, and focused client components for interactive catalogues and enquiry preparation.
+TK Muzenda Properties is a Next.js 16 App Router application using React 19, TypeScript, Tailwind CSS 4, Server Components by default, and focused client components for interactive catalogues and enquiry preparation.
 
 ## Main areas
 

@@ -1,6 +1,6 @@
-# Exquisite Properties
+# TK Muzenda Properties
 
-Exquisite Properties is a responsive Next.js website for property transformation, cabinetry and custom interiors, board supply and cutting, supporting hardware, accommodation enquiries, and project presentation.
+TK Muzenda Properties is a responsive Next.js website for property transformation, cabinetry and custom interiors, board supply and cutting, supporting hardware, accommodation enquiries, and project presentation.
 
 The current content repository is static and typed. Illustrative projects and accommodation records are clearly labelled until verified business content and inventory are supplied.
 

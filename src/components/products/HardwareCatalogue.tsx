@@ -15,7 +15,7 @@ export default function HardwareCatalogue({ products }: { products: CataloguePro
   const [category, setCategory] = useState('All'); const [query, setQuery] = useState(''); const [detail, setDetail] = useState<CatalogueProduct>(); const [selection, setSelection] = useState<Record<string, number>>({}); const [copied, setCopied] = useState(false);
   const filtered = useMemo(() => filterProducts(products, category, query), [products, category, query]);
   const selected = products.filter((product) => selection[product.id]);
-  const summary = ['EXQUISITE PROPERTIES — PRODUCT ENQUIRY', '', ...selected.map((product) => `• ${product.name} — quantity ${selection[product.id]}`), '', 'Please confirm specification, compatibility, availability and pricing. This is an enquiry, not an order.'].join('\n');
+  const summary = ['TK MUZENDA PROPERTIES — PRODUCT ENQUIRY', '', ...selected.map((product) => `• ${product.name} — quantity ${selection[product.id]}`), '', 'Please confirm specification, compatibility, availability and pricing. This is an enquiry, not an order.'].join('\n');
   const mailto = `mailto:${contact.email}?subject=${encodeURIComponent('Product enquiry')}&body=${encodeURIComponent(summary)}`; const whatsapp = `${whatsappUrl('supporting hardware')}%0A%0A${encodeURIComponent(summary)}`; const linksTooLong = Math.max(mailto.length, whatsapp.length) > SAFE_URL_LENGTH;
   const copy = async () => { await navigator.clipboard.writeText(summary); setCopied(true); window.setTimeout(() => setCopied(false), 2000); };
   const toggle = (id: string) => setSelection((current) => current[id] ? Object.fromEntries(Object.entries(current).filter(([key]) => key !== id)) : { ...current, [id]: 1 });

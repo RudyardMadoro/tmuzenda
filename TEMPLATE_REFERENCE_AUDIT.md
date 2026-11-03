@@ -1,4 +1,4 @@
-# Exquisite Properties Template Reference Audit
+# TK Muzenda Properties Template Reference Audit
 
 Date: 2 November 2026
 
@@ -12,15 +12,15 @@ Repository-wide review of source code, routes, metadata, configuration, document
 
 | Area | References discovered | Changes implemented |
 | --- | --- | --- |
-| Application identity | Package name `shakuro` | Renamed package metadata to `exquisite-properties`. |
+| Application identity | Package name `shakuro` | Renamed package metadata to `tk-muzenda-properties`. |
 | Live contact details | Telephone, WhatsApp, email and address values were duplicated across the header, footer, contact page, product tools, accommodation tools and structured data | Verified details were subsequently restored through `src/config/contact.ts`, with contextual links and server-side contact-form delivery. |
 | Business location claims | Unverified Midrand/Gauteng claims in global metadata, landing-page brand panel, About page and route metadata | Removed business-location claims. Illustrative accommodation locations remain clearly labelled as non-live examples. |
 | SEO and sharing | Hardcoded unverified production domain, inherited showcase Open Graph image, location claims and fabricated LocalBusiness address/telephone data | Defaulted canonical infrastructure to `http://localhost:3000` until a verified deployment origin is configured; switched sharing imagery to a current site hero; reduced JSON-LD to verified Organization name, URL and email. |
-| Documentation | Horizon Estate names, repository URLs, obsolete routes, agents, journal, investment calculators, showcase pages, consultation modal, old setup and deployment instructions | Replaced the README and outdated guides with documentation for the actual Exquisite Properties application, repository, routes, commands, deployment and content model. |
+| Documentation | Horizon Estate names, repository URLs, obsolete routes, agents, journal, investment calculators, showcase pages, consultation modal, old setup and deployment instructions | Replaced the README and outdated guides with documentation for the actual TK Muzenda Properties application, repository, routes, commands, deployment and content model. |
 | Package and repository URLs | Original template repository and identifiers | Updated maintained documentation to `https://github.com/RudyardMadoro/tmuzenda`. |
 | Public assets | Unused template showcase screenshots, agent portraits, journal covers, default framework SVGs and unrelated Takura Muzenda logo | Confirmed no runtime references and removed the obsolete files. |
 | Enquiry/privacy wording | References to phone and WhatsApp channels after those details were removed | Updated privacy, QA, implementation and enquiry copy to describe verified email handoff only. |
-| Social and accessibility labels | Inherited social banner reference and generic template wording | Added current Exquisite Properties descriptions and meaningful sharing-image alt text. |
+| Social and accessibility labels | Inherited social banner reference and generic template wording | Added current TK Muzenda Properties descriptions and meaningful sharing-image alt text. |
 
 ### RETAINED — REQUIRED
 
@@ -35,7 +35,7 @@ Repository-wide review of source code, routes, metadata, configuration, document
 ### NEEDS BUSINESS INPUT
 
 - Verified production domain for `NEXT_PUBLIC_SITE_URL`.
-- Approved Exquisite Properties logo, favicon and dedicated social-sharing image.
+- A dedicated TK Muzenda Properties social-sharing image and favicon, if approved in future; the current brand treatment is intentionally text-only.
 - Verified service area and social accounts if these should be published. Phone, WhatsApp and address were subsequently supplied and restored through the centralized contact configuration.
 - Legal entity name and registration details, if different from the public trading name.
 - Approved privacy retention/deletion process and final consumer terms.
@@ -45,7 +45,7 @@ Repository-wide review of source code, routes, metadata, configuration, document
 
 ### NOT APPLICABLE
 
-- No PWA manifest exists in the current application.
+- A web manifest identifies the application as TK Muzenda Properties without introducing company logo assets.
 - No live checkout, payment, application, booking, authentication or backend form submission exists.
 - No pull request, commit or push was requested or performed as part of this audit.
 

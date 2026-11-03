@@ -1,4 +1,4 @@
-# Contributing to Exquisite Properties
+# Contributing to TK Muzenda Properties
 
 Contributions should preserve the existing brand, accessibility, responsive behavior, and typed content model.
 

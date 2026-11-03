@@ -4,7 +4,7 @@ export const accommodation: Accommodation[] = [
   {
     id: 'rental-noordwyk-apartment', slug: 'noordwyk-garden-apartment', kind: 'rental', title: 'Noordwyk Garden Apartment', location: 'Noordwyk, Midrand', propertyType: 'Apartment',
     summary: 'A calm two-bedroom apartment concept close to everyday Midrand connections.',
-    description: 'This illustrative record shows the information Exquisite Properties will provide for a longer-term rental. The photography and specifications are placeholders and must be confirmed against the actual unit before any decision is made.',
+    description: 'This illustrative record shows the information TK Muzenda Properties will provide for a longer-term rental. The photography and specifications are placeholders and must be confirmed against the actual unit before any decision is made.',
     bedrooms: 2, bathrooms: 1, price: { currency: 'ZAR', period: 'month', verified: false }, amenities: ['Secure access', 'Dedicated parking', 'Private patio', 'Fibre-ready'],
     specifications: { Furnishing: 'Unfurnished', Parking: '1 dedicated bay', Outdoor: 'Private patio', Utilities: 'Confirm on enquiry' },
     images: [

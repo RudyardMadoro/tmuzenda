@@ -12,11 +12,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: 'Exquisite Properties | Transforming Spaces, Beautifully', template: '%s | Exquisite Properties' },
+  applicationName: 'TK Muzenda Properties',
+  title: { default: 'TK Muzenda Properties | Transforming Spaces, Beautifully', template: '%s | TK Muzenda Properties' },
   description: 'Property transformation, custom cabinetry, board supply, supporting hardware, accommodation and project delivery.',
   alternates: { canonical: '/' },
-  openGraph: { title: 'Exquisite Properties', description: 'Transforming spaces, beautifully.', type: 'website', locale: 'en_ZA', siteName: 'Exquisite Properties', url: '/', images: [{ url: '/images/hero/hero-luxury-villa.jpg', alt: 'Contemporary property representing Exquisite Properties' }] },
-  twitter: { card: 'summary_large_image', title: 'Exquisite Properties', description: 'Transforming spaces, beautifully.', images: ['/images/hero/hero-luxury-villa.jpg'] },
+  openGraph: { title: 'TK Muzenda Properties', description: 'Transforming spaces, beautifully.', type: 'website', locale: 'en_ZA', siteName: 'TK Muzenda Properties', url: '/', images: [{ url: '/images/hero/hero-luxury-villa.jpg', alt: 'Contemporary property representing TK Muzenda Properties' }] },
+  twitter: { card: 'summary_large_image', title: 'TK Muzenda Properties', description: 'Transforming spaces, beautifully.', images: ['/images/hero/hero-luxury-villa.jpg'] },
   robots: { index: true, follow: true },
 };
 

@@ -41,7 +41,7 @@ export async function POST(request: Request) {
   const to = process.env.CONTACT_TO_EMAIL || contact.email;
   if (!apiKey || !from) return Response.json({ message: 'Online enquiry delivery is not configured yet. Please contact us by phone, email or WhatsApp.' }, { status: 503 });
 
-  const html = `<h1>New Exquisite Properties enquiry</h1><p><strong>Name:</strong> ${escapeHtml(enquiry.fullName)}</p><p><strong>Email:</strong> ${escapeHtml(enquiry.email)}</p><p><strong>Phone:</strong> ${escapeHtml(enquiry.phone || 'Not supplied')}</p><p><strong>Service:</strong> ${escapeHtml(enquiry.service)}</p><p><strong>Subject:</strong> ${escapeHtml(enquiry.subject)}</p><p><strong>Message:</strong></p><p>${escapeHtml(enquiry.message).replace(/\n/g, '<br>')}</p>`;
+  const html = `<h1>New TK Muzenda Properties enquiry</h1><p><strong>Name:</strong> ${escapeHtml(enquiry.fullName)}</p><p><strong>Email:</strong> ${escapeHtml(enquiry.email)}</p><p><strong>Phone:</strong> ${escapeHtml(enquiry.phone || 'Not supplied')}</p><p><strong>Service:</strong> ${escapeHtml(enquiry.service)}</p><p><strong>Subject:</strong> ${escapeHtml(enquiry.subject)}</p><p><strong>Message:</strong></p><p>${escapeHtml(enquiry.message).replace(/\n/g, '<br>')}</p>`;
   try {
     const delivery = await fetch('https://api.resend.com/emails', { method: 'POST', headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ from, to: [to], reply_to: enquiry.email, subject: `[Website] ${enquiry.subject}`, html }) });
     const result = await delivery.json().catch(() => ({})) as { id?: string; message?: string };

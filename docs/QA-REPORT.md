@@ -34,4 +34,4 @@ Business review is required before launch for the legal entity name, physical ad
 - No live inventory, pricing, availability, checkout, booking or enquiry backend.
 - Catalogue, project and accommodation imagery/content are suitable only as labelled illustrative material, not real inventory or completed-work claims.
 - Browser visual regression, Lighthouse and assistive-technology testing require a deployed preview and should be repeated on real iOS Safari, Android Chrome and desktop browsers before DNS cutover.
-- Social metadata currently uses the site hero photograph. Replace it with an approved Exquisite Properties social-sharing asset when one is supplied.
+- Social metadata currently uses the site hero photograph. Replace it with an approved TK Muzenda Properties social-sharing asset when one is supplied.

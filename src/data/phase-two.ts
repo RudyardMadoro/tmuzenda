@@ -18,7 +18,7 @@ export const cabinetryOfferings: ServiceOffering[] = [
 ];
 
 export const materialInspiration: MaterialInspiration[] = [
-  { name: 'Warm woodgrain', character: 'Natural, grounded and quietly tactile.', applications: ['Kitchen accents', 'Wardrobes', 'Living units'], image: { src: '/images/services/property-selection.jpg', alt: 'Illustrative warm timber material palette' } },
-  { name: 'Soft neutral', character: 'Calm, adaptable and suited to layered interiors.', applications: ['Full kitchen elevations', 'Vanities', 'Utility storage'], image: { src: '/images/services/buying-assistance.jpg', alt: 'Illustrative soft neutral architectural surface' } },
-  { name: 'Dark architectural', character: 'Graphic depth with a precise, contemporary edge.', applications: ['Media units', 'Feature cabinetry', 'Profiles'], image: { src: '/images/services/legal-support.jpg', alt: 'Illustrative dark architectural finish and hardware' } },
+  { name: 'Warm woodgrain', character: 'Natural, grounded and quietly tactile.', applications: ['Kitchen accents', 'Wardrobes', 'Living units'], image: { src: '/images/services/cabinetry/finish-warm-woodgrain.webp', alt: 'Luxury kitchen with woodgrain cabinetry, warm grey finishes and a marble island' } },
+  { name: 'Soft neutral', character: 'Calm, adaptable and suited to layered interiors.', applications: ['Full kitchen elevations', 'Vanities', 'Utility storage'], image: { src: '/images/services/cabinetry/finish-soft-neutral.webp', alt: 'Luxury walk-in wardrobe with custom cabinetry and integrated lighting' } },
+  { name: 'Dark architectural', character: 'Graphic depth with a precise, contemporary edge.', applications: ['Media units', 'Feature cabinetry', 'Profiles'], image: { src: '/images/services/cabinetry/finish-dark-architectural.webp', alt: 'Contemporary bathroom with a floating wood vanity and illuminated mirrors' } },
 ];

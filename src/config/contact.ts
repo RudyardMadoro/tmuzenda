@@ -1,5 +1,5 @@
 export const contact = {
-  businessName: 'Exquisite Properties',
+  businessName: 'TK Muzenda Properties',
   email: 'rudyardmadoro@gmail.com',
   phoneDisplay: '+27 64 172 7623',
   phoneE164: '+27641727623',
@@ -16,7 +16,7 @@ export function whatsappUrl(context = 'your services') {
 
 export function whatsappMessageUrl(message: string) { return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`; }
 
-export function emailUrl(subject = 'Exquisite Properties enquiry', body?: string) {
+export function emailUrl(subject = 'TK Muzenda Properties enquiry', body?: string) {
   const query = new URLSearchParams({ subject });
   if (body) query.set('body', body);
   return `mailto:${contact.email}?${query.toString()}`;

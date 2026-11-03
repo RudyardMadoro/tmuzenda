@@ -4,7 +4,7 @@ import PageHero from '@/components/ui/PageHero';
 import ContactForm from '@/components/contact/ContactForm';
 import { contact, whatsappUrl } from '@/config/contact';
 
-export const metadata: Metadata = { title: 'Contact', description: 'Call, email, WhatsApp or send an online enquiry to Exquisite Properties.' };
+export const metadata: Metadata = { title: 'Contact', description: 'Call, email, WhatsApp or send an online enquiry to TK Muzenda Properties.' };
 
 const options = [
   { label: 'Call', value: contact.phoneDisplay, href: contact.phoneHref, icon: Phone, external: false },

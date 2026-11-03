@@ -1,6 +1,6 @@
-# Exquisite Properties — Animation & Motion System Specification
+# TK Muzenda Properties — Animation & Motion System Specification
 
-This document details the motion design tokens, scroll-reveal mechanics, micro-interactions, hardware-acceleration techniques, and accessibility safeguards implemented across **Exquisite Properties**.
+This document details the motion design tokens, scroll-reveal mechanics, micro-interactions, hardware-acceleration techniques, and accessibility safeguards implemented across **TK Muzenda Properties**.
 
 ---
 
@@ -88,7 +88,7 @@ Supported directions:
 
 ## 4. Accessibility: Reduced-Motion Support
 
-Exquisite Properties respects the user's operating system preferences via two layers of protection:
+TK Muzenda Properties respects the user's operating system preferences via two layers of protection:
 
 ### Layer 1: CSS Global Override
 In `src/app/globals.css`:

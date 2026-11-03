@@ -1,4 +1,4 @@
-# Exquisite Properties — implementation notes
+# TK Muzenda Properties — implementation notes
 
 ## Phase 1 foundation
 

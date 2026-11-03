@@ -26,7 +26,7 @@ export const panelIsValid = (panel: CuttingPanel, board: SupplyBoard) => Object.
 
 export function buildEnquirySummary(requests: BoardCuttingRequest[], boards: SupplyBoard[]): string {
   const boardById = new Map(boards.map((board) => [board.id, board]));
-  const lines = ['EXQUISITE PROPERTIES — BOARD & CUTTING ENQUIRY', '', 'Please review and confirm availability, price and feasibility. This is an enquiry, not an order.', ''];
+  const lines = ['TK MUZENDA PROPERTIES — BOARD & CUTTING ENQUIRY', '', 'Please review and confirm availability, price and feasibility. This is an enquiry, not an order.', ''];
   requests.forEach((request, requestIndex) => {
     const board = boardById.get(request.boardId);
     if (!board) return;
